@@ -5,11 +5,24 @@ class NLP_100():
 
     @classmethod
     def Q_000(cls):
-        pass
+        """ 00. 文字列の逆順
+        文字列"stressed"の文字を逆に（末尾から先頭に向かって）並べた文字列を得よ．
+        """
+        # 入力文字
+        input_str = 'stressed'
+        # 逆順
+        return input_str[::-1]
 
     @classmethod
     def Q_001(cls):
-        pass
+        """ 01. 「パタトクカシーー」
+        「パタトクカシーー」という文字列の1,3,5,7文字目を取り出して連結した文字列を得よ．
+        """
+
+        # 入力文字
+        input_str = 'パタトクカシーー'
+        # 文字列の1,3,5,7文字目を取得
+        return input_str[0::2]
 
     @classmethod
     def Q_002(cls):
