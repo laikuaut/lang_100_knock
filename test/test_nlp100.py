@@ -28,6 +28,10 @@ class Test_NLP_100(unittest.TestCase):
         pass
 
     def test_Q_005(self):
+        self.assertEqual(NLP_100.Q_005_1(2), \
+            ['I ', ' a', 'am', 'm ', ' a', 'an', 'n ', ' N', 'NL', 'LP', 'Pe', 'er'])
+        self.assertEqual(NLP_100.Q_005_2(2), \
+            [['I', 'am'], ['am', 'an'], ['an', 'NLPer']])
         pass
 
     def test_Q_006(self):

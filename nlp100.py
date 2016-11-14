@@ -79,8 +79,30 @@ class NLP_100():
         return element
 
     @classmethod
-    def Q_005(cls):
-        pass
+    def Q_005_1(cls, n):
+        """ 05. n-gram
+        与えられたシーケンス（文字列やリストなど）からn-gramを作る関数を作成せよ．この関数を用い，"I am an NLPer"という文から単語bi-gram，文字bi-gramを得よ．
+        文字bi-gramを処理
+        """
+
+        input_str = "I am an NLPer"
+        return cls.Q_005_ngram(input_str, n)
+
+    @classmethod
+    def Q_005_2(cls, n):
+        """ 05. n-gram
+        与えられたシーケンス（文字列やリストなど）からn-gramを作る関数を作成せよ．この関数を用い，"I am an NLPer"という文から単語bi-gram，文字bi-gramを得よ．
+        単語bi-gramを処理
+        """
+
+        input_str = "I am an NLPer"
+        word_list = [word for word in re.split(r'\W+', input_str) if len(word) > 0]
+        return cls.Q_005_ngram(word_list, n)
+
+    @classmethod
+    def Q_005_ngram(cls, input, n):
+        last = len(input) - n + 1
+        return [input[i:i+n] for i in range(0, last)]
 
     @classmethod
     def Q_006(cls):
