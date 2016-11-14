@@ -13,7 +13,7 @@ class Test_NLP_100(unittest.TestCase):
         self.assertEqual(NLP_100.Q_001(), 'パトカー')
 
     def test_Q_002(self):
-        pass
+        self.assertEqual(NLP_100.Q_002(), 'パタトクカシーー')
 
     def test_Q_003(self):
         pass
