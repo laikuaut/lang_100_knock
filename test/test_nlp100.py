@@ -2,7 +2,12 @@
 # config: utf-8
 
 import unittest
-from nlp100.Q100 import *
+from nlp100.Q000 import *
+from nlp100.Q001 import *
+from nlp100.Q002 import *
+from nlp100.Q003 import *
+from nlp100.Q004 import *
+from nlp100.Q005 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -10,17 +15,17 @@ class Test_NLP_100(unittest.TestCase):
         self.assertEqual(Q_000(), 'desserts')
 
     def test_Q_001(self):
-        self.assertEqual(NLP_100.Q_001(), 'パトカー')
+        self.assertEqual(Q_001(), 'パトカー')
 
     def test_Q_002(self):
-        self.assertEqual(NLP_100.Q_002(), 'パタトクカシーー')
+        self.assertEqual(Q_002(), 'パタトクカシーー')
 
     def test_Q_003(self):
-        self.assertEqual(NLP_100.Q_003(), \
+        self.assertEqual(Q_003(), \
             [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9])
 
     def test_Q_004(self):
-        self.assertEqual(NLP_100.Q_004(), \
+        self.assertEqual(Q_004(), \
             {'H':1,'He':2,'Li':3,'Be':4,'B':5,'C':6,'N':7,
              'O':8,'F':9,'Ne':10,'Na':11,'Mi':12,'Al':13,
              'Si':14,'P':15,'S':16,'Cl':17,'Ar':18,'K':19,
@@ -28,9 +33,9 @@ class Test_NLP_100(unittest.TestCase):
         pass
 
     def test_Q_005(self):
-        self.assertEqual(NLP_100.Q_005_1(2), \
+        self.assertEqual(Q_005_1(2), \
             ['I ', ' a', 'am', 'm ', ' a', 'an', 'n ', ' N', 'NL', 'LP', 'Pe', 'er'])
-        self.assertEqual(NLP_100.Q_005_2(2), \
+        self.assertEqual(Q_005_2(2), \
             [['I', 'am'], ['am', 'an'], ['an', 'NLPer']])
         pass
 
