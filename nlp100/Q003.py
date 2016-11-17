@@ -10,5 +10,8 @@ def Q_003():
 
     # 単語の文字数が円周率=3.14159265358979になっている
     input_str = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
-    word_list = re.split(r'\W+', input_str)
-    return [len(word) for word in word_list if len(word) > 0]
+    word_list = word_split(input_str)
+    return [len(word) for word in word_list]
+
+def word_split(sent, regex=r'\W+'):
+    return [word for word in re.split(regex, sent) if len(word) > 0]

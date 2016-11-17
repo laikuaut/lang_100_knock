@@ -1,6 +1,6 @@
 # config: utf-8
 
-import re
+from . import Q003
 
 def Q_004():
     """ 04. 元素記号
@@ -11,7 +11,7 @@ def Q_004():
 
     # 結果がkey=元素記号, value=元素番号の辞書型になる
     input_str = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
-    word_list = [word for word in re.split(r'\W+', input_str) if len(word) > 0]
+    word_list = Q003.word_split(input_str)
     one_pos_list = [1, 5, 6, 7, 8, 9, 15, 16, 19]
 
     # 元素記号格納辞書
