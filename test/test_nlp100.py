@@ -2,12 +2,12 @@
 # config: utf-8
 
 import unittest
-from nlp100 import NLP_100
+from nlp100.Q100 import *
 
 class Test_NLP_100(unittest.TestCase):
 
     def test_Q_000(self):
-        self.assertEqual(NLP_100.Q_000(), 'desserts')
+        self.assertEqual(Q_000(), 'desserts')
 
     def test_Q_001(self):
         self.assertEqual(NLP_100.Q_001(), 'パトカー')
