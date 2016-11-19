@@ -8,6 +8,7 @@ from nlp100.Q002 import *
 from nlp100.Q003 import *
 from nlp100.Q004 import *
 from nlp100.Q005 import *
+from nlp100.Q006 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -30,17 +31,24 @@ class Test_NLP_100(unittest.TestCase):
              'O':8,'F':9,'Ne':10,'Na':11,'Mi':12,'Al':13,
              'Si':14,'P':15,'S':16,'Cl':17,'Ar':18,'K':19,
              'Ca':20})
-        pass
 
     def test_Q_005(self):
         self.assertEqual(Q_005_1(2), \
             ['I ', ' a', 'am', 'm ', ' a', 'an', 'n ', ' N', 'NL', 'LP', 'Pe', 'er'])
         self.assertEqual(Q_005_2(2), \
             [['I', 'am'], ['am', 'an'], ['an', 'NLPer']])
-        pass
 
     def test_Q_006(self):
-        pass
+        self.assertEqual(Q_006_1(), \
+            {'ad', 'ag', 'ap', 'ar', 'di', 'gr', 'is', 'pa', 'ph', 'ra', 'se'})
+        self.assertEqual(Q_006_2(), \
+            {'ap', 'ar', 'pa', 'ra'})
+        self.assertEqual(Q_006_3(), \
+            {'ad', 'di', 'is', 'se'})
+        self.assertTrue(Q_006_4())
+        self.assertFalse(Q_006_5())
+        self.assertEqual(Q_006_6(), \
+            {'ad', 'ag', 'di', 'gr', 'is', 'ph', 'se'})
 
     def test_Q_007(self):
         pass
