@@ -5,13 +5,9 @@ import subprocess
 
 def exe_cmd(cmd):
     ''' コマンド実行関数
-    リダイレクト時はファイルへの出力のため、ジェネレータなしでコマンド戻り値返却
-    リダイレクトなしの場合は、1行単位の標準出力をジェネレータで返す。
     :param cmd: str 実行コマンド
     :rtype generator
     :return: 標準出力(1行単位) + コマンド戻り値
-    :rtype int
-    :return: コマンド戻り値
     '''
 
     cmd_list = shlex.split(cmd)
