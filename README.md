@@ -108,6 +108,14 @@
 98.Ward法によるクラスタリング  
 99.t-SNEによる可視化  
 
+## 入力データ
+
+```Bash
+cd data
+# hightemp.txt
+wget http://www.cl.ecei.tohoku.ac.jp/nlp100/data/hightemp.txt
+```
+
 ## テスト実行
 
 ```

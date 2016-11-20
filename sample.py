@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 # config: utf-8
 
-from nlp100 import Q008
+from util import util
+from nlp100 import Q010
 
 def main():
 
-    in_str     = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
-    print(Q008.cipher(in_str))
-
-
+    print(Q010.Q_010())
 if __name__ == '__main__':
     main()

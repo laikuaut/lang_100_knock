@@ -12,6 +12,7 @@ from nlp100.Q006 import *
 from nlp100.Q007 import *
 from nlp100.Q008 import *
 from nlp100.Q009 import *
+from nlp100.Q010 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -83,6 +84,8 @@ class Test_NLP_100(unittest.TestCase):
                 self.assertEqual(in_word, out_word)
 
     def test_Q_010(self):
+        self.assertEqual(Q_010(), \
+            ['24 data/hightemp.txt'])
         pass
 
     def test_Q_011(self):
