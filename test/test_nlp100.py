@@ -15,6 +15,7 @@ from nlp100.Q009 import *
 from nlp100.Q010 import *
 from nlp100.Q011 import *
 from nlp100.Q012 import *
+from nlp100.Q013 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -133,7 +134,13 @@ class Test_NLP_100(unittest.TestCase):
         self.assertEqual(result2, correct2)
 
     def test_Q_013(self):
-        pass
+        correct1 = ['高知県','埼玉県','岐阜県','山形県','山梨県','和歌山県','静岡県','山梨県','埼玉県','群馬県','群馬県','愛知県','千葉県','静岡県','愛媛県','山形県','岐阜県','群馬県','千葉県','埼玉県','大阪府','山梨県','山形県','愛知県']
+        correct2 = ['江川崎', '熊谷', '多治見', '山形', '甲府', 'かつらぎ', '天竜', '勝沼', '越谷', '館林', '上里見', '愛西', '牛久', '佐久間', '宇和島', '酒田', '美濃', '前橋', '茂原', '鳩山', '豊中', '大月', '鶴岡', '名古屋']
+        correct = ['{0}\t{1}'.format(c1, c2) for c1, c2 in zip(correct1, correct2)]
+        Q_013()
+        with open('data/col_merge.txt', 'tr', encoding='utf-8') as col:
+            result = [line.strip() for line in col]
+        self.assertEqual(result, correct)
 
     def test_Q_014(self):
         pass

@@ -19,7 +19,7 @@ def exe_cmd(cmd):
         # リダイレクト実行
         proc = subprocess.Popen(cmd, shell=True, universal_newlines=True)
         while proc.poll() is None: pass
-        return proc.poll()
+        yield proc.poll()
     else:
         # リダイレクトなし実装
         proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, universal_newlines=True)
