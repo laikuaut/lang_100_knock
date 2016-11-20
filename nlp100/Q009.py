@@ -13,7 +13,10 @@ def Q_009():
     """
 
     in_str = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
-    word_list = in_str.split(' ')
+    return typoglycemia(in_str)
+
+def typoglycemia(data):
+    word_list = data.split(' ')
     out_list = []
     for word in word_list:
         if len(word) > 4:
