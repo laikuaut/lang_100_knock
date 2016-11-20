@@ -1,18 +1,16 @@
 #!/usr/bin/env python
 # config: utf-8
 
-from nlp100 import Q005
+from nlp100 import Q008
 
 def main():
-    list1 = Q005.ngram("paraparaparadise", 2)
-    list2 = Q005.ngram("paragraph", 2)
+    in_str = 'Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.'
+    data = Q008.encode(in_str)
+    out_str = Q008.decode(data)
 
-    for i in list1:
-        if i not in list2:
-            print(i)
-    for i in list2:
-        if i not in list1:
-            print(i)
+    print(in_str)
+    print(data)
+    print(out_str)
 
 
 if __name__ == '__main__':

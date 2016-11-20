@@ -10,6 +10,7 @@ from nlp100.Q004 import *
 from nlp100.Q005 import *
 from nlp100.Q006 import *
 from nlp100.Q007 import *
+from nlp100.Q008 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -55,7 +56,13 @@ class Test_NLP_100(unittest.TestCase):
         self.assertEqual(Q_007(), '12時の気温は22.4')
 
     def test_Q_008(self):
-        pass
+        in_str     = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
+        encode_str = "Nld I mvvw z wirmp, zoxlslorx lu xlfihv, zugvi gsv svzeb ovxgfivh rmeloermt jfzmgfn nvxszmrxh."
+
+        self.assertEqual(Q_008_1(in_str), \
+            encode_str)
+        self.assertEqual(Q_008_2(encode_str), \
+            in_str)
 
     def test_Q_009(self):
         pass
