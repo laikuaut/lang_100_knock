@@ -11,6 +11,7 @@ from nlp100.Q005 import *
 from nlp100.Q006 import *
 from nlp100.Q007 import *
 from nlp100.Q008 import *
+from nlp100.Q009 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -59,13 +60,27 @@ class Test_NLP_100(unittest.TestCase):
         in_str     = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
         encode_str = "Nld I mvvw z wirmp, zoxlslorx lu xlfihv, zugvi gsv svzeb ovxgfivh rmeloermt jfzmgfn nvxszmrxh."
 
-        self.assertEqual(Q_008_1(in_str), \
-            encode_str)
-        self.assertEqual(Q_008_2(encode_str), \
-            in_str)
+        result = Q_008(in_str)
+        # 暗号化確認
+        self.assertEqual(result, encode_str)
+        # 複合化確認
+        self.assertEqual(Q_008(result), in_str)
 
     def test_Q_009(self):
-        pass
+        in_str = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
+        result = Q_009()
+        in_word_list = in_str.split(' ')
+        out_word_list = result.split(' ')
+        for in_word, out_word in zip(in_word_list, out_word_list):
+            # 文字数チェック
+            self.assertEqual(len(in_word), len(out_word))
+            # 利用している文字がすべて同じか
+            self.assertEqual([c for c in sorted(in_word)], [c for c in sorted(out_word)])
+            # 4文字以下と5文字以上の並べ替え確認
+            if len(in_word) > 4:
+                self.assertNotEqual(in_word, out_word)
+            else:
+                self.assertEqual(in_word, out_word)
 
     def test_Q_010(self):
         pass
