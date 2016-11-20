@@ -14,4 +14,7 @@ def Q_003():
     return [len(word) for word in word_list]
 
 def word_split(sent, regex=r'\W+'):
+    """ 単語分割
+    単語ごとに分割した文字列リストを作成する
+    """
     return [word for word in re.split(regex, sent) if len(word) > 0]

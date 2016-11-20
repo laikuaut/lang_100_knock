@@ -24,6 +24,9 @@ def Q_005_2(n):
     return ngram(word_list, n)
 
 def ngram(input, n):
+    """ Ngram取得
+    入力変数を指定のgram数でngramリストを作成する
+    """
     last = len(input) - n + 1
     return [input[i:i+n] for i in range(0, last)]
 

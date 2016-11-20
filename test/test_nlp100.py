@@ -9,6 +9,7 @@ from nlp100.Q003 import *
 from nlp100.Q004 import *
 from nlp100.Q005 import *
 from nlp100.Q006 import *
+from nlp100.Q007 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -51,7 +52,7 @@ class Test_NLP_100(unittest.TestCase):
             {'ad', 'ag', 'di', 'gr', 'is', 'ph', 'se'})
 
     def test_Q_007(self):
-        pass
+        self.assertEqual(Q_007(), '12時の気温は22.4')
 
     def test_Q_008(self):
         pass
