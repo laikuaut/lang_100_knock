@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# config: utf-8
+# coding: utf-8
 
 import unittest
 from nlp100.Q000 import *
@@ -14,6 +14,7 @@ from nlp100.Q008 import *
 from nlp100.Q009 import *
 from nlp100.Q010 import *
 from nlp100.Q011 import *
+from nlp100.Q012 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -118,7 +119,18 @@ class Test_NLP_100(unittest.TestCase):
         self.assertEqual(Q_011_3(), current)
 
     def test_Q_012(self):
-        pass
+        correct1 = ['高知県','埼玉県','岐阜県','山形県','山梨県','和歌山県','静岡県','山梨県','埼玉県','群馬県','群馬県','愛知県','千葉県','静岡県','愛媛県','山形県','岐阜県','群馬県','千葉県','埼玉県','大阪府','山梨県','山形県','愛知県']
+        correct2 = ['江川崎', '熊谷', '多治見', '山形', '甲府', 'かつらぎ', '天竜', '勝沼', '越谷', '館林', '上里見', '愛西', '牛久', '佐久間', '宇和島', '酒田', '美濃', '前橋', '茂原', '鳩山', '豊中', '大月', '鶴岡', '名古屋']
+
+        Q_012()
+        result1 = []
+        result2 = []
+        with open('data/col1.txt', 'tr', encoding='utf-8') as col1:
+            result1 = [line.strip() for line in col1]
+        with open('data/col2.txt', 'tr', encoding='utf-8') as col2:
+            result2 = [line.strip() for line in col2]
+        self.assertEqual(result1, correct1)
+        self.assertEqual(result2, correct2)
 
     def test_Q_013(self):
         pass

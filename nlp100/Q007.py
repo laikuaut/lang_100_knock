@@ -1,4 +1,4 @@
-# config: utf-8
+# coding: utf-8
 
 def Q_007():
     """ 07. テンプレートによる文生成

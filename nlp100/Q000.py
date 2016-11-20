@@ -1,4 +1,4 @@
-# config: utf-8
+# coding: utf-8
 
 def Q_000():
     """ 00. 文字列の逆順

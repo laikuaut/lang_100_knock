@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-# config: utf-8
+# coding: utf-8
 
 from util import util
-from nlp100 import Q010
+from nlp100 import Q012
 
 def main():
 
-    print(Q010.Q_010())
+    print(list(util.exe_cmd('cat data/hightemp.txt')))
 if __name__ == '__main__':
     main()

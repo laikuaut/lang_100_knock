@@ -1,4 +1,4 @@
-# config: utf-8
+# coding: utf-8
 
 def Q_008(in_str):
     """ 08. 暗号文
