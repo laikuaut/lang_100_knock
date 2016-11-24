@@ -180,7 +180,8 @@ class Test_NLP_100(unittest.TestCase):
             '山梨県	勝沼	40.5	2013-08-10',
             '埼玉県	越谷	40.4	2007-08-16',
             '群馬県	館林	40.3	2007-08-16']
-        self.assertEqual(Q_014(10), current)
+        self.assertEqual(Q_014_1(10), current)
+        self.assertEqual(Q_014_2(10), current)
 
 
     def test_Q_015(self):
