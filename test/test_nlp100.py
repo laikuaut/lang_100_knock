@@ -89,7 +89,8 @@ class Test_NLP_100(unittest.TestCase):
                 self.assertEqual(in_word, out_word)
 
     def test_Q_010(self):
-        self.assertEqual(Q_010(), \
+        self.assertEqual(Q_010_1(), 24)
+        self.assertEqual(Q_010_2(), \
             ['24 data/hightemp.txt'])
 
     def test_Q_011(self):
