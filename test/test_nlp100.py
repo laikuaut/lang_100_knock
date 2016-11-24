@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import unittest
+from util import util
 from nlp100.Q000 import *
 from nlp100.Q001 import *
 from nlp100.Q002 import *
@@ -118,6 +119,7 @@ class Test_NLP_100(unittest.TestCase):
             '山梨県 大月 39.9 1990-07-19',
             '山形県 鶴岡 39.9 1978-08-03',
             '愛知県 名古屋 39.9 1942-08-02']
+        self.assertEqual(Q_011_0(), current)
         self.assertEqual(Q_011_1(), current)
         self.assertEqual(Q_011_2(), current)
         self.assertEqual(Q_011_3(), current)
@@ -126,7 +128,21 @@ class Test_NLP_100(unittest.TestCase):
         correct1 = ['高知県','埼玉県','岐阜県','山形県','山梨県','和歌山県','静岡県','山梨県','埼玉県','群馬県','群馬県','愛知県','千葉県','静岡県','愛媛県','山形県','岐阜県','群馬県','千葉県','埼玉県','大阪府','山梨県','山形県','愛知県']
         correct2 = ['江川崎', '熊谷', '多治見', '山形', '甲府', 'かつらぎ', '天竜', '勝沼', '越谷', '館林', '上里見', '愛西', '牛久', '佐久間', '宇和島', '酒田', '美濃', '前橋', '茂原', '鳩山', '豊中', '大月', '鶴岡', '名古屋']
 
-        Q_012()
+        for _ in util.exe_cmd('rm data/col1.txt -f'): pass
+        for _ in util.exe_cmd('rm data/col2.txt -f'): pass
+        Q_012_1()
+        result1 = []
+        result2 = []
+        with open('data/col1.txt', 'tr', encoding='utf-8') as col1:
+            result1 = [line.strip() for line in col1]
+        with open('data/col2.txt', 'tr', encoding='utf-8') as col2:
+            result2 = [line.strip() for line in col2]
+        self.assertEqual(result1, correct1)
+        self.assertEqual(result2, correct2)
+
+        for _ in util.exe_cmd('rm data/col1.txt -f'): pass
+        for _ in util.exe_cmd('rm data/col2.txt -f'): pass
+        Q_012_2()
         result1 = []
         result2 = []
         with open('data/col1.txt', 'tr', encoding='utf-8') as col1:
