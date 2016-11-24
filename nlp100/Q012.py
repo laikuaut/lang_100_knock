@@ -8,8 +8,8 @@ def Q_012_1():
     2列目だけを抜き出したものをcol2.txtとしてファイルに保存せよ．
     """
     with open('data/hightemp.txt', 'r') as rf, \
-            open('data/col1.txt', 'w') as wf1, \
-            open('data/col2.txt', 'w') as wf2:
+         open('data/col1.txt', 'w') as wf1, \
+         open('data/col2.txt', 'w') as wf2:
         for line in rf:
             cols = line.split('\t')
             wf1.write('{}\n'.format(cols[0]))
