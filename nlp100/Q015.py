@@ -11,7 +11,9 @@ def Q_015_1(n):
     file_name = 'data/hightemp.txt'
     line_count = len(linecache.getlines(file_name))
     tail_n = line_count - n
-    return [ linecache.getline(file_name, tail_n + i + 1).strip() for i in range(n)]
+    data = [ linecache.getline(file_name, tail_n + i + 1).strip() for i in range(n)]
+    linecache.clearcache()
+    return data
 
 def Q_015_2(n):
     """ 15. 末尾のN行を出力
