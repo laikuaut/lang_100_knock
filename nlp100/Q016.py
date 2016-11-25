@@ -27,6 +27,6 @@ def Q_016_2(n):
     同様の処理をsplitコマンドで実現せよ．
     """
 
-    for _ in util.exe_cmd('mkdir -p data/splitted'.format(n=n)): pass
+    for _ in util.exe_cmd('mkdir -p data/splitted'): pass
     for _ in util.exe_cmd('split -l {n} -a 3 data/hightemp.txt data/splitted/hightemp.txt.'.format(n=n)): pass
     return 0
