@@ -195,7 +195,8 @@ class Test_NLP_100(unittest.TestCase):
             '山梨県	大月	39.9	1990-07-19',
             '山形県	鶴岡	39.9	1978-08-03',
             '愛知県	名古屋	39.9	1942-08-02']
-        self.assertEqual(Q_015(10), current)
+        self.assertEqual(Q_015_2(10), current)
+        self.assertEqual(Q_015_1(10), current)
 
     def test_Q_016(self):
         pass
