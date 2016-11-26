@@ -21,6 +21,7 @@ from nlp100.Q013 import *
 from nlp100.Q014 import *
 from nlp100.Q015 import *
 from nlp100.Q016 import *
+from nlp100.Q017 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -185,7 +186,6 @@ class Test_NLP_100(unittest.TestCase):
         self.assertEqual(Q_014_1(10), current)
         self.assertEqual(Q_014_2(10), current)
 
-
     def test_Q_015(self):
         current = ['愛媛県	宇和島	40.2	1927-07-22',
             '山形県	酒田	40.1	1978-08-03',
@@ -237,7 +237,22 @@ class Test_NLP_100(unittest.TestCase):
         self.assertEqual(result, current)
 
     def test_Q_017(self):
-        pass
+        current = {
+            '愛知県',
+            '愛媛県',
+            '岐阜県',
+            '群馬県',
+            '高知県',
+            '埼玉県',
+            '山形県',
+            '山梨県',
+            '静岡県',
+            '千葉県',
+            '大阪府',
+            '和歌山県'
+            }
+        self.assertEqual(Q_017_1(), current)
+        self.assertEqual(Q_017_2(), current)
 
     def test_Q_018(self):
         pass
