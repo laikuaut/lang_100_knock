@@ -23,6 +23,7 @@ from nlp100.Q015 import *
 from nlp100.Q016 import *
 from nlp100.Q017 import *
 from nlp100.Q018 import *
+from nlp100.Q019 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -284,7 +285,42 @@ class Test_NLP_100(unittest.TestCase):
         self.assertEqual(Q_018_2(), current)
 
     def test_Q_019(self):
-        pass
+        current = [
+            ('埼玉県', '3'),
+            ('山形県', '3'),
+            ('山梨県', '3'),
+            ('群馬県', '3'),
+            ('静岡県', '2'),
+            ('千葉県', '2'),
+            ('愛知県', '2'),
+            ('岐阜県', '2'),
+            ('愛媛県', '1'),
+            ('高知県', '1'),
+            ('大阪府', '1'),
+            ('和歌山県', '1')]
+
+        result1 = Q_019_1()
+        result2 = Q_019_2()
+        # 出力順が出現頻度順になっているかを確認(要素の出現順は比較しない)
+        for c, r in zip(current, result1):
+            self.assertEqual(r[1], c[1])
+        for c, r in zip(current, result2):
+            self.assertEqual(r[1], c[1])
+
+        # 出現頻度の最大値と最小値を算出
+        max_num = max([int(col[1]) for col in current])
+        min_num = min([int(col[1]) for col in current])
+
+        # 出現頻度ごとの要素内容が同じであることを確認
+        for i in range(min_num, max_num+1):
+            self.assertEqual(
+                    {col[0] for col in result1 if col[1] == i},
+                    {col[0] for col in current if col[1] == i}
+                )
+            self.assertEqual(
+                    {col[0] for col in result2 if col[1] == i},
+                    {col[0] for col in current if col[1] == i}
+                )
 
     def test_Q_020(self):
         pass
