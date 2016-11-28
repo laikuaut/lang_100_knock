@@ -24,6 +24,10 @@ from nlp100.Q016 import *
 from nlp100.Q017 import *
 from nlp100.Q018 import *
 from nlp100.Q019 import *
+from nlp100.Q020 import *
+from nlp100.Q021 import *
+from nlp100.Q022 import *
+from nlp100.Q023 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -323,16 +327,85 @@ class Test_NLP_100(unittest.TestCase):
                 )
 
     def test_Q_020(self):
-        pass
+        util.exe_cmd('rm data/Britain.txt')
+        Q_020()
+
+        with open('data/Britain.txt', 'r') as result_f, \
+             open('test/data/Britain.json', 'r') as current_f:
+            current_data = json.loads(current_f.readline())
+            result = result_f.read().rstrip()
+            self.assertEqual(result, current_data['text'])
 
     def test_Q_021(self):
-        pass
+        current = ['[[Category:イギリス|*]]',
+                '[[Category:英連邦王国|*]]',
+                '[[Category:G8加盟国]]',
+                '[[Category:欧州連合加盟国]]',
+                '[[Category:海洋国家]]',
+                '[[Category:君主国]]',
+                '[[Category:島国|くれいとふりてん]]',
+                '[[Category:1801年に設立された州・地域]]']
+        result = Q_021()
+        self.assertEqual(result, current)
 
     def test_Q_022(self):
-        pass
+        current = [
+            'イギリス|*',
+            '英連邦王国|*',
+            'G8加盟国',
+            '欧州連合加盟国',
+            '海洋国家',
+            '君主国',
+            '島国|くれいとふりてん',
+            '1801年に設立された州・地域']
+        self.assertEqual(Q_022(), current)
 
     def test_Q_023(self):
-        pass
+        current = [('国名',1),
+                ('歴史',1),
+                ('地理',1),
+                ('気候',2),
+                ('政治',1),
+                ('外交と軍事',1),
+                ('地方行政区分',1),
+                ('主要都市',2),
+                ('科学技術',1),
+                ('経済',1),
+                ('鉱業',2),
+                ('農業',2),
+                ('貿易',2),
+                ('通貨',2),
+                ('企業',2),
+                ('交通',1),
+                ('道路',2),
+                ('鉄道',2),
+                ('海運',2),
+                ('航空',2),
+                ('通信',1),
+                ('国民',1),
+                ('言語',2),
+                ('宗教',2),
+                (' 婚姻 ',2),
+                ('教育',2),
+                ('文化',1),
+                ('食文化',2),
+                ('文学',2),
+                (' 哲学 ',2),
+                ('音楽',2),
+                ('イギリスのポピュラー音楽',3),
+                ('映画',2),
+                ('コメディ',2),
+                ('国花',2),
+                ('世界遺産',2),
+                ('祝祭日',2),
+                ('スポーツ',1),
+                ('サッカー',2),
+                ('競馬',2),
+                ('モータースポーツ',2),
+                ('脚注',1),
+                ('関連項目',1),
+                ('外部リンク',1)]
+        self.assertEqual(Q_023(), current)
 
     def test_Q_024(self):
         pass

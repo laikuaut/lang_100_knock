@@ -2,10 +2,10 @@
 # coding: utf-8
 
 from util import util
-from nlp100 import Q012
+from nlp100 import Q023
 
 def main():
-    print(list(util.exe_cmd('cat data/hightemp.txt > a')))
+    print(Q023.Q_023())
 
 if __name__ == '__main__':
     main()

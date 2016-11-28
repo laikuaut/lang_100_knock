@@ -114,6 +114,8 @@
 cd data
 # hightemp.txt
 wget http://www.cl.ecei.tohoku.ac.jp/nlp100/data/hightemp.txt
+wget http://www.cl.ecei.tohoku.ac.jp/nlp100/data/jawiki-country.json.gz
+gzip -d jawiki-country.json.gz
 ```
 
 ## テスト実行
