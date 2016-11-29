@@ -28,6 +28,7 @@ from nlp100.Q020 import *
 from nlp100.Q021 import *
 from nlp100.Q022 import *
 from nlp100.Q023 import *
+from nlp100.Q024 import *
 
 class Test_NLP_100(unittest.TestCase):
 
@@ -408,7 +409,22 @@ class Test_NLP_100(unittest.TestCase):
         self.assertEqual(Q_023(), current)
 
     def test_Q_024(self):
-        pass
+        current = ["Battle of Waterloo 1815.PNG",
+                "The British Empire.png",
+                "Uk topo en.jpg",
+                "BenNevis2005.jpg",
+                "Elizabeth II greets NASA GSFC employees, May 8, 2007 edit.jpg",
+                "Palace of Westminster, London - Feb 2007.jpg",
+                "David Cameron and Barack Obama at the G20 Summit in Toronto.jpg",
+                "Soldiers Trooping the Colour, 16th June 2007.jpg",
+                "Scotland Parliament Holyrood.jpg",
+                "London.bankofengland.arp.jpg",
+                "City of London skyline from London City Hall - Oct 2008.jpg",
+                "Oil platform in the North SeaPros.jpg",
+                "Eurostar at St Pancras Jan 2008.jpg",
+                "Heathrow T5.jpg",
+                "Anglospeak.svg"]
+        self.assertEqual(Q_024(), current)
 
     def test_Q_025(self):
         pass
