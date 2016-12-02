@@ -11,8 +11,6 @@ def Q_025():
     regex_start_basis_info = re.compile(r'{{基礎情報 ')
     # フィード判定用正規表現(regex for deciding feed line.)
     regex_start_feed = re.compile(r'^\|')
-    # 値連続行判定用正規表現
-    regex_next_feed_value = re.compile(r'^\*')
     # 基礎情報終了行判定用正規表現
     regex_end_basis_info = re.compile(r'^}}$')
 
@@ -29,7 +27,7 @@ def Q_025():
             if regex_start_feed.match(line):
                 key, value = line.rstrip().lstrip('|').split(' = ')
                 basis_info_list[key] = value
-            if regex_next_feed_value.match(line):
-                basis_info_list[key] += line.rstrip().lstrip('*')
+            else:
+                basis_info_list[key] += line.rstrip()
 
     return basis_info_list

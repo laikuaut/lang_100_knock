@@ -2,10 +2,10 @@
 # coding: utf-8
 
 from util import util
-from nlp100 import Q025
+from nlp100 import Q026
 
 def main():
-    print(Q025.Q_025()['公式国名'])
+    print(Q026.Q_026())
 
 if __name__ == '__main__':
     main()
