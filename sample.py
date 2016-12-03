@@ -2,10 +2,10 @@
 # coding: utf-8
 
 from util import util
-from nlp100 import Q026
+from nlp100 import Q027
 
 def main():
-    print(Q026.Q_026())
+    print(Q027.Q_027()['確立形態1'])
 
 if __name__ == '__main__':
     main()

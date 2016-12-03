@@ -7,7 +7,7 @@ def Q_024():
     記事から参照されているメディアファイルをすべて抜き出せ．
     """
 
-    regex = re.compile(r'(?<=^\[\[File:)(.+\.[a-zA-Z]+)(?=\|.+\]\])')
+    regex = re.compile(r'(?<=\[\[(?:File:|ファイル:))(.+\.[a-zA-Z]+)(?=\|.+\]\])')
     file_list = []
     with open('data/Britain.txt', 'r') as f:
         for line in f:
