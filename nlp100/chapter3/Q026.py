@@ -39,9 +39,10 @@ def Q_026():
                 break
             if regex_start_feed.match(line):
                 key, value = line.rstrip().lstrip('|').split(' = ')
-                basis_info_list[key] = emphasis_remove(value, regex_emphasis_list)
+                # 複数行にまたがる要素もあるため、改行コードを戻す
+                basis_info_list[key] = emphasis_remove(value, regex_emphasis_list) + "\n"
             else:
-                basis_info_list[key] += emphasis_remove(line.rstrip(), regex_emphasis_list)
+                basis_info_list[key] += emphasis_remove(line.rstrip(), regex_emphasis_list) + "\n"
 
     return basis_info_list
 

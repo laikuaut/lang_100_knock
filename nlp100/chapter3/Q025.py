@@ -26,8 +26,9 @@ def Q_025():
                 break
             if regex_start_feed.match(line):
                 key, value = line.rstrip().lstrip('|').split(' = ')
-                basis_info_list[key] = value
+                # 複数行にまたがる要素もあるため、改行コードを戻す
+                basis_info_list[key] = value + '\n'
             else:
-                basis_info_list[key] += line.rstrip()
+                basis_info_list[key] += line.rstrip() + "\n"
 
     return basis_info_list

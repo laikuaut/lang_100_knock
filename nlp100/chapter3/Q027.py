@@ -47,9 +47,9 @@ class BasisInfo(object):
                     break
                 if self.__regex_start_feed.match(line):
                     key, value = line.rstrip().lstrip('|').split(' = ')
-                    self.info_data[key] = self.__formatter(value)
+                    self.info_data[key] = self.__formatter(value) + "\n"
                 else:
-                    self.info_data[key] += self.__formatter(line.rstrip())
+                    self.info_data[key] += self.__formatter(line.rstrip()) + "\n"
 
     def __formatter(self, line):
         line = self.__emphasis_remove(line)
