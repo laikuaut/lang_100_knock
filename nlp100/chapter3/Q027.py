@@ -21,13 +21,7 @@ class BasisInfo(object):
         self.__regex_italic_and_bold = re.compile(r"(?:'{5}|'{2,3})(.+?)(?:'{5}|'{2,3})")
 
         # 内部リンク判定用正規表現
-        self.__regex_inner_link = re.compile(r'\[\[[^:]+\]\]')
-
-        # 内部リンク開始位置判定用正規表現
-        self.__regex_inner_link_start = re.compile(r'\[\[')
-
-        # 内部リンク終了位置判定用正規表現
-        self.__regex_inner_link_end = re.compile(r'\]\]')
+        self.__regex_inner_link = re.compile(r'(.*)(\[\[)([^:]+?)(\]\])(.*)')
 
     def readFile(self, file_path):
         with open(file_path, 'r') as f:
@@ -57,20 +51,21 @@ class BasisInfo(object):
 
     def __inner_link_remove(self, line):
         # 内部リンクを含んている間処理を継続
-        while self.__regex_inner_link.search(line):
-            # 内部リンク開始記号の文字範囲を取得('[[')
-            startRange = self.__regex_inner_link_start.search(line).span()
-            # 内部リンク終了記号の文字範囲を取得(']]')
-            endRange = self.__regex_inner_link_end.search(line).span()
-
+        while True:
+            # 内部リンク判定
+            matchObj = self.__regex_inner_link.search(line)
+            if matchObj is None:
+                break
+            # グループ群取得
+            groups = matchObj.groups()
             # 内部リンクの文字列部分を取得
-            inner_string = line[startRange[1]:endRange[0]]
+            inner_string = groups[2]
             # 表示文字部分を取得(エスケープ等の考慮なし)
             inner_data = inner_string.split('|')
             inner_string = inner_data[1] if len(inner_data) > 1 else inner_data[0]
 
             # 整形済みの内部リンクを元の行へ反映( '[['前の文字列 + 内部リンク文字列 + ']]'後の文字列)
-            line = line[0:startRange[0]] + inner_string + line[endRange[1]:]
+            line = groups[0] + inner_string + groups[4]
         return line
 
 def Q_027():
