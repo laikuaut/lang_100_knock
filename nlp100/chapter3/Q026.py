@@ -14,18 +14,8 @@ def Q_026():
     regex_start_feed = re.compile(r'^\|')
     # 基礎情報終了行判定用正規表現(regex for checking basis info end line.)
     regex_end_basis_info = re.compile(r'^}}$')
-    # 斜体
-    regex_italic = re.compile(r"''(.+)''")
-    # 強調
-    regex_bold = re.compile(r"'''(.+)'''")
     # 斜体と強調
-    regex_italic_and_bold = re.compile(r"'''''(.+)'''''")
-    # 強調マークアップ正規表現リスト
-    regex_emphasis_list = [
-            regex_italic_and_bold,
-            regex_bold,
-            regex_italic,
-    ]
+    regex_italic_and_bold = re.compile(r"(?:'{5}|'{2,3})(.+?)(?:'{5}|'{2,3})")
 
     basis_info_list = {}
     with open('data/Britain.txt', 'r') as f:
@@ -40,13 +30,13 @@ def Q_026():
             if regex_start_feed.match(line):
                 key, value = line.rstrip().lstrip('|').split(' = ')
                 # 複数行にまたがる要素もあるため、改行コードを戻す
-                basis_info_list[key] = emphasis_remove(value, regex_emphasis_list) + "\n"
+                basis_info_list[key] = emphasis_remove(value, regex_italic_and_bold) + "\n"
             else:
-                basis_info_list[key] += emphasis_remove(line.rstrip(), regex_emphasis_list) + "\n"
+                basis_info_list[key] += emphasis_remove(line.rstrip(), regex_italic_and_bold) + "\n"
 
     return basis_info_list
 
-def emphasis_remove(line, regex_list):
-    for regex in regex_list:
+def emphasis_remove(line, regex):
+    while regex.search(line):
         line = regex.sub('\g<1>', line)
     return line

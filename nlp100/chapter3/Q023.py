@@ -12,9 +12,7 @@ class Section(object):
         """
 
         # セクション構造行抽出用正規表現
-        self.__re_secrion_line = re.compile(r'^==+.+==+$')
-        # セクション構造のレベル部分文字列抽出正規表現
-        self.__re_section_level = re.compile(r'==+')
+        self.__re_secrion_line = re.compile(r'^(={2,})(.+?)(={2,})$')
         # (セクション名, セクションレベル)のタプル格納リスト
         self.section_list = []
 
@@ -23,19 +21,13 @@ class Section(object):
         入力行がセクション構造の行であるかを判定し、
         セクション行である場合は、セクション情報リストへ追加する。
         """
-        if self.__re_secrion_line.match(line):
-            self.section_list.append(self.__getSection(line))
-
-    def __getSection(self, line):
-        """ セクション情報タプル取得
-        セクション行を解析して(セクション名, セクションレベル)のタプルを返却する。
-        ※ 入力行はaddSectionにてセクション行であるかを判定済みの前提
-        """
-
-        level_symbol = self.__re_section_level.match(line).group()
-        level = len(level_symbol) - 1
-        name = line.replace(level_symbol, '')
-        return (name, level)
+        matchObj = self.__re_secrion_line.match(line)
+        if matchObj:
+            groups = matchObj.groups()
+            level_symbol = groups[0]
+            level = len(level_symbol) - 1
+            name = line.replace(level_symbol, '')
+            self.section_list.append((name, level))
 
 def Q_023():
     """ 23. セクション構造

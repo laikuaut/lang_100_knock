@@ -17,14 +17,8 @@ class BasisInfo(object):
         # 基礎情報終了行判定用正規表現(regex for checking basis info end line.)
         self.__regex_end_basis_info = re.compile(r'^}}$')
 
-        # 斜体
-        self.__regex_italic = re.compile(r"''(.+)''")
-
-        # 強調
-        self.__regex_bold = re.compile(r"'''(.+)'''")
-
         # 斜体と強調
-        self.__regex_italic_and_bold = re.compile(r"'''''(.+)'''''")
+        self.__regex_italic_and_bold = re.compile(r"(?:'{5}|'{2,3})(.+?)(?:'{5}|'{2,3})")
 
         # 内部リンク判定用正規表現
         self.__regex_inner_link = re.compile(r'\[\[[^:]+\]\]')
@@ -57,15 +51,8 @@ class BasisInfo(object):
         return line
 
     def __emphasis_remove(self, line):
-        # 強調マークアップ正規表現リスト
-        regex_emphasis_list = [
-                self.__regex_italic_and_bold,
-                self.__regex_bold,
-                self.__regex_italic,
-        ]
-
-        for regex in regex_emphasis_list:
-            line = regex.sub('\g<1>', line)
+        while self.__regex_italic_and_bold.search(line):
+            line = self.__regex_italic_and_bold.sub('\g<1>', line)
         return line
 
     def __inner_link_remove(self, line):
