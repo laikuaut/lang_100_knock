@@ -2,10 +2,11 @@
 # coding: utf-8
 
 from util import util
-from nlp100 import Q027
+from nlp100.chapter3.Q028 import *
 
 def main():
-    print(Q027.Q_027()['確立形態1'])
+    for key, value in Q_028().items():
+        print('{} : {}'.format(key, value), end='')
 
 if __name__ == '__main__':
     main()
