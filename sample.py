@@ -13,7 +13,7 @@ def main():
 
 #    data = read_mecab_data('data/neko.txt.mecab')
     data = Q_030()
-    print(data[1])
+    print(data[0:3])
 
 if __name__ == '__main__':
     main()

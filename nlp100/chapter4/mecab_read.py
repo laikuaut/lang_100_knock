@@ -45,9 +45,8 @@ def read_mecab_info(file_path):
         for line in f:
             line = line.rstrip('\n\r')
             if line == "EOS":
-                if mecab_sent:
-                    mecab_data.append(mecab_sent)
-                    mecab_sent = []
+                mecab_data.append(mecab_sent)
+                mecab_sent = []
             else:
                 mecab_sent.append(WordInfo(line))
 
@@ -64,9 +63,8 @@ def read_mecab_data(file_path):
             line = line.rstrip('\n\r')
             word = {}
             if line == "EOS":
-                if sent:
-                    sent_list.append(sent)
-                    sent = []
+                sent_list.append(sent)
+                sent = []
             else:
                 sent.append(get_word_dist(line))
     return sent_list
