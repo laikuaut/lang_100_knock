@@ -6,7 +6,7 @@ import glob
 from util import util
 from nlp100.chapter4.Q030 import *
 from nlp100.chapter4.Q031 import *
-#from nlp100.chapter4.Q032 import *
+from nlp100.chapter4.Q032 import *
 #from nlp100.chapter4.Q033 import *
 #from nlp100.chapter4.Q034 import *
 #from nlp100.chapter4.Q035 import *
@@ -47,7 +47,11 @@ class Test_Chapter4(unittest.TestCase):
         self.assertEqual(Q_031(), current)
 
     def test_Q_032(self):
-        pass
+        current = set()
+        with open('test/data/Q032.txt', 'r') as f:
+            for line in f:
+                current.add(line.strip())
+        self.assertEqual(Q_032(), current)
 
     def test_Q_033(self):
         pass
