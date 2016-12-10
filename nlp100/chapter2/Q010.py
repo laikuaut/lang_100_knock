@@ -18,5 +18,5 @@ def Q_010_2():
     確認にはwcコマンドを用いよ．
     """
 
-    ite = util.exe_cmd('wc -l data/hightemp.txt')
+    ite = util.exe_cmd('cat data/hightemp.txt | wc -l')
     return list(ite)

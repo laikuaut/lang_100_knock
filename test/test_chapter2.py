@@ -17,6 +17,10 @@ from nlp100.chapter2.Q019 import *
 
 class Test_Chapter2(unittest.TestCase):
 
+    def test_Q_010(self):
+        self.assertEqual(Q_010_1(), 24)
+        self.assertEqual(Q_010_2(), ["24"])
+
     def test_Q_011(self):
         current = ['高知県 江川崎 41 2013-08-12',
             '埼玉県 熊谷 40.9 2007-08-16',
