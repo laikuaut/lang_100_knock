@@ -124,3 +124,13 @@ gzip -d jawiki-country.json.gz
 ```
 python -m unittest test/test_nlp100.py
 ```
+
+## その他
+
+### Q029のためのライブラリ
+
+Wikipedia APIを呼び出すために、requestsをインストールしておく。
+
+```
+pip install requests
+```

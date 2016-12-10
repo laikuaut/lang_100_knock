@@ -13,6 +13,7 @@ from nlp100.chapter3.Q025 import *
 from nlp100.chapter3.Q026 import *
 from nlp100.chapter3.Q027 import *
 from nlp100.chapter3.Q028 import *
+from nlp100.chapter3.Q029 import *
 
 class Test_Chapter3(unittest.TestCase):
 
@@ -372,7 +373,7 @@ class Test_Chapter3(unittest.TestCase):
             self.assertEqual(result[key], current[key])
 
     def test_Q_029(self):
-        pass
+        self.assertEqual(Q_029(), 'https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg')
 
 if __name__ == '__main__':
     unittest.main()
