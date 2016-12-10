@@ -2,10 +2,10 @@
 # coding: utf-8
 
 from util import util
-from nlp100.chapter4.Q032 import *
+from nlp100.chapter4.Q033 import *
 
 def main():
-    data = Q_032()
+    data = Q_033()
     print(data)
 
 if __name__ == '__main__':
