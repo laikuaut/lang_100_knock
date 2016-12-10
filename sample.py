@@ -2,10 +2,18 @@
 # coding: utf-8
 
 from util import util
-from nlp100.chapter3.Q029 import *
+from nlp100.chapter4.Q030 import *
 
 def main():
-    print(Q_029())
+#    mecab_data = read_mecab_info('data/neko.txt.mecab')
+#    for sent in mecab_data:
+#        for word in sent:
+#            print(word.surface, end=" ")
+#        print()
+
+#    data = read_mecab_data('data/neko.txt.mecab')
+    data = Q_030()
+    print(data[1])
 
 if __name__ == '__main__':
     main()
