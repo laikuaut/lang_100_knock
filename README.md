@@ -131,6 +131,49 @@ python -m unittest test/test_nlp100.py
 
 Wikipedia APIを呼び出すために、requestsをインストールしておく。
 
-```
+```Bash
 pip install requests
+```
+
+### mecabをインストール
+
+4章データmecabを用いた形態素解析結果を使うため、インストールする。
+
+#### 本体をインストール
+
+```Bash
+wget "https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7cENtOXlicTFaRUE" -O mecab-0.996.tar.gz
+tar zxvf mecab-0.996.tar.gz
+cd mecab-0.996/
+./configure --prefix=${HOME}/install/
+make
+make install
+```
+
+#### 辞書をインストール
+
+```Bash
+wget "https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7MWVlSDBCSXZMTXM" -O mecab-ipadic-2.7.0-20070801.tar.gz
+tar zxvf mecab-ipadic-2.7.0-20070801.tar.gz
+cd mecab-ipadic-2.7.0-20070801/
+./configure --prefix=${HOME}/install/mecab-ipadic-2.7.0/ --with-mecab-config=${HOME}/install/mecab-0.996/bin/mecab-config --with-charset=utf8
+make
+make install
+```
+
+#### 実行例
+
+```Bash
+~/install/mecab-0.996/bin/mecab
+明日は晴れ
+明日    名詞,副詞可能,*,*,*,*,明日,アシタ,アシタ
+は      助詞,係助詞,*,*,*,*,は,ハ,ワ
+晴れ    名詞,一般,*,*,*,*,晴れ,ハレ,ハレ
+EOS
+```
+
+#### 4章用のデータ作成
+
+```Bash
+~/install/mecab-0.996/bin/mecab -o data/neko.txt.mecab < data/neko.txt
 ```
