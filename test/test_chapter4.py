@@ -10,8 +10,8 @@ from nlp100.chapter4.Q032 import *
 from nlp100.chapter4.Q033 import *
 from nlp100.chapter4.Q034 import *
 from nlp100.chapter4.Q035 import *
-#from nlp100.chapter4.Q036 import *
-#from nlp100.chapter4.Q037 import *
+from nlp100.chapter4.Q036 import *
+from nlp100.chapter4.Q037 import *
 #from nlp100.chapter4.Q038 import *
 #from nlp100.chapter4.Q039 import *
 
@@ -62,16 +62,22 @@ class Test_Chapter4(unittest.TestCase):
 
     def test_Q_034(self):
         # [TODO]
+        Q_034()
         pass
 
     def test_Q_035(self):
         # [TODO]
+        Q_035()
         pass
 
     def test_Q_036(self):
+        # [TODO]
+        Q_036()
         pass
 
     def test_Q_037(self):
+        # [TODO]
+        Q_037()
         pass
 
     def test_Q_038(self):

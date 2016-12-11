@@ -194,3 +194,14 @@ EOS
 ```Bash
 ~/install/mecab-0.996/bin/mecab -o data/neko.txt.mecab < data/neko.txt
 ```
+
+### グラフ表示
+
+#### matplotlibをインストール
+
+```
+sudo yum -y install tkinter python-imaging tk-devel
+pip install matplotlib
+pip install pandas
+env DISPLAY=:0 ./run.py
+```
